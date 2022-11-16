@@ -1,7 +1,6 @@
 #include "shell.h"
 
 /**
-<<<<<<< HEAD
  * aux_help_env - Help information
  * Return: no return
  */
@@ -26,7 +25,7 @@ void aux_help_setenv(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 	help = "int replace)\n\t";
 	write(STDOUT_FILENO, help, _strlen(help));
-	help = "Add a new definition to the environment\n";
+	help = "Add new definition to the environment\n";
 	write(STDOUT_FILENO, help, _strlen(help));
 }
 /**
@@ -44,7 +43,7 @@ void aux_help_unsetenv(void)
 
 
 /**
- * aux_help_general - Entry point for help information
+ * aux_help_general - Entry point for help information for the help builtin
  * Return: no return
  */
 void aux_help_general(void)
@@ -78,35 +77,4 @@ void aux_help_exit(void)
 	write(STDOUT_FILENO, help, _strlen(help));
 	help = "status is that of the last command executed\n";
 	write(STDOUT_FILENO, help, _strlen(help));
-=======
- * get_help - function that retrieves help messages according builtin
- * @datash: data structure (args and input)
- * Return: Return 0
-*/
-int get_help(data_shell *datash)
-{
-
-	if (datash->args[1] == 0)
-		aux_help_general();
-	else if (_strcmp(datash->args[1], "setenv") == 0)
-		aux_help_setenv();
-	else if (_strcmp(datash->args[1], "env") == 0)
-		aux_help_env();
-	else if (_strcmp(datash->args[1], "unsetenv") == 0)
-		aux_help_unsetenv();
-	else if (_strcmp(datash->args[1], "help") == 0)
-		aux_help();
-	else if (_strcmp(datash->args[1], "exit") == 0)
-		aux_help_exit();
-	else if (_strcmp(datash->args[1], "cd") == 0)
-		aux_help_cd();
-	else if (_strcmp(datash->args[1], "alias") == 0)
-		aux_help_alias();
-	else
-		write(STDERR_FILENO, datash->args[0],
-		      _strlen(datash->args[0]));
-
-	datash->status = 0;
-	return (1);
->>>>>>> f4cf45fa8166618dac4f91b9c302685d8ee064de
 }
