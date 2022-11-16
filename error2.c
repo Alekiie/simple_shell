@@ -50,7 +50,7 @@ char *error_path_126(data_shell *datash)
 	str = aux_itoa(datash->counter);
 	len = _strlen(datash->av[0]) + _strlen(str);
 	len += _strlen(datash->args[0]) + 24;
-	error = malloc(sizeof(char) * (length + 1));
+	error = malloc(sizeof(char) * (len + 1));
 	if (error == 0)
 	{
 		free(error);
