@@ -16,6 +16,9 @@
 #define TOK_BUFSIZE 128
 #define TOK_DELIM " \t\r\n\a"
 
+#define END_OF_FILE -2
+#define EXIT -3
+
 /* Points to an array of pointers to strings called the "environment" */
 extern char **environ;
 
