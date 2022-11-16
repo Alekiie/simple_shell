@@ -7,16 +7,16 @@
  */
 int c_atoi(char *s)
 {
-	int i = 0;
+	int n = 0;
 	unsigned int num = 0;
 
-	while (s[i] != '\0')
+	while (s[n] != '\0')
 	{
-		if (s[i] >= '0' && s[i] <= '9') /* calculate num */
-			num = num * 10 + (s[i] - '0');
-		if (s[i] > '9' || s[i] < '0') /* account for non-numbers */
+		if (s[n] >= '0' && s[n] <= '9')
+			num = num * 10 + (s[n] - '0');
+		if (s[n] > '9' || s[n] < '0')
 			return (-1);
-		i++;
+		n++;
 	}
 	return (num);
 }
@@ -31,20 +31,20 @@ int c_atoi(char *s)
  */
 int __exit(char **str, list_e *env, int num, char **command)
 {
-	int e_value = 0;
+	int val = 0;
 
-	if (str[1] != NULL) /* if no value given after exit, return 0 */
-		e_value = c_atoi(str[1]);
+	if (str[1] != NULL)
+		val = c_atoi(str[1]);
 
-	if (e_value == -1) /* if value given after exit is invalid, perror */
+	if (val == -1)
 	{
-		illegal_number(str[1], num, env); /* print error msg */
+		illegal_number(str[1], num, env);
 		free_double_ptr(str);
 		return (2);
 	}
-	free_double_ptr(str); /* free user input before exiting program */
+	free_double_ptr(str);
 	free_linked_list(env);
 	if (command != NULL)
 		free_double_ptr(command);
-	exit(e_value);
+	exit(val);
 }
